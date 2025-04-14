@@ -1,0 +1,29 @@
+module Memory16X10 (output reg [9:0]data_out,input [9:0] data_in , input [3:0] address , input rw);
+
+reg  [9:0]Mem[15:0];  // use 10-bit for memory 2-bit to opcode and 8-bit for operand/Regisert
+							 // here we create 16 address of memory for testing
+ 	
+//	integer PC ;
+		
+initial 
+	begin
+		Mem[0] = 10'b0000001001; // Mov R  , 9 -> R-> A
+		Mem[1] = 10'b0100001010 ;// LDI 10 access direct to mem[10] -> MBR -> A 
+		Mem[2] = 10'b1000001011 ;// LDA 11 access indirect mem[mem[11]]
+		Mem[3] = 10'b0000011001; // Mov R  , 25 -> R-> A
+		Mem[4] = 10'b0100001110 ;// LDI 10 access direct to mem[14] -> MBR -> A 
+		Mem[5] = 10'b1000001111 ;// LDA 11 access indirect mem[mem[11]]
+	
+	
+		Mem[10] = 10'h022;
+		Mem[11] = 10'h00c; // 12
+		Mem[12] = 10'h044; // Mem[Mem[11]] =0x44
+		
+		Mem[13] = 10'h099;
+		Mem[14] = 10'h088; // 0x88
+		Mem[15] = 10'h00d; // Mem[Mem[15]] =0x99
+	end  //*/
+
+data_out = memory[address]; 
+
+endmodule

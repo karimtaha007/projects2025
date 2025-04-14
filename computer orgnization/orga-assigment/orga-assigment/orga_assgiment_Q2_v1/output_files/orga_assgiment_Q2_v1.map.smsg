@@ -1,0 +1,8 @@
+Info (10281): Verilog HDL Declaration information at control_unit_test.v(1): object "DT0" differs only in case from object "dt0" in the same scope
+Info (10281): Verilog HDL Declaration information at control_unit_test.v(1): object "DT1" differs only in case from object "dt1" in the same scope
+Info (10281): Verilog HDL Declaration information at control_unit_test.v(1): object "DT2" differs only in case from object "dt2" in the same scope
+Info (10281): Verilog HDL Declaration information at control_unit_test.v(1): object "DT3" differs only in case from object "dt3" in the same scope
+Info (10281): Verilog HDL Declaration information at control_unit_test.v(1): object "DT4" differs only in case from object "dt4" in the same scope
+Info (10281): Verilog HDL Declaration information at control_unit_test.v(1): object "DT5" differs only in case from object "dt5" in the same scope
+Info (10281): Verilog HDL Declaration information at control_unit_test.v(1): object "DT6" differs only in case from object "dt6" in the same scope
+Info (10281): Verilog HDL Declaration information at control_unit_test.v(1): object "DT7" differs only in case from object "dt7" in the same scope

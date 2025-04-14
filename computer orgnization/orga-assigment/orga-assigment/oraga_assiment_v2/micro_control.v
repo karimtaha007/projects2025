@@ -1,0 +1,25 @@
+module micro_control(output  x8,x7,x6,x5,x4,x3,x2,x1 , input [3:0]q,input [7:0] t) ;
+ 
+wire [8:0]a;
+and g1(a[0],q[2],t[3]);
+and g2(a[1],q[3],t[3]);
+or o1(x1,t[0],a[0],a[1]);//x1=t0+q2.t3+q3t3
+and g3(x2,q[3],t[5]);//x2=q3.t5
+
+and g4(a[3],q[2],t[4]);
+and g5(a[4],q[3],t[4]);
+or xo2(x3,t[1],a[3],a[4]);//x3=t1+q2.t4+q3t4
+
+and xa4(a[5],q[3],t[6]);
+or xo4(x4,x3,a[5]); // x4 =x3+q3.t6
+
+and xa5(a[6],q[2],t[5]),
+	 xa51(a[7],q[3],t[7]);
+or xo5(x5,a[6],a[7]); //x5 =q2.t5+q3.t7
+
+and xa6(x6,q[1],t[3]);//x6=q1.t3
+
+or xo7(x7,x5,x6);//x7=x5+x6
+
+buf (x8,t[2]);//x8=t2
+endmodule

@@ -1,0 +1,14 @@
+module PC (output reg [7:0] address,input inc,clk,reset) ;
+
+initial address = 8'h00 ; 
+
+always @(posedge clk)
+ begin 
+	if reset == 1 
+		address <= 8'h00;
+	else if inc == 1  
+	   address <= address + 1'b1 ;  
+ end 
+
+
+endmodule 

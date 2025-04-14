@@ -1,0 +1,16 @@
+module logic_circuit (output [3:0]E , input[3:0]A,B ,input [1:0]S);
+
+wire [3:0] and_op,or_op,xor_op,not_op ; 
+
+assign and_op = A & B ; 
+assign or_op = A | B ; 
+assign xor_op = A ^ B ; 
+assign not_op = ~A ;
+
+mux4x1 mx0(E[0],and_op[0],or_op[0],xor_op[0],not_op[0]),
+		 mx1(E[1],and_op[1],or_op[1],xor_op[1],not_op[1]),
+		 mx2(E[2],and_op[2],or_op[2],xor_op[2],not_op[2]),
+		 mx3(E[3],and_op[3],or_op[3],xor_op[3],not_op[3]);
+
+
+endmodule

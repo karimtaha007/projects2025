@@ -1,0 +1,9 @@
+module reg_8_bit (output [7:0] Q ,input [7:0] data ,input select,clk,reset) ;
+
+
+one_bit_reg r0(Q[0],data[0],select,clk,reset),
+
+
+
+
+endmodule 

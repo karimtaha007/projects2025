@@ -1,0 +1,11 @@
+
+State Machine - |orga_assgiment_Q2_v1|control_unit_test:countrol_nit|state_controller:comb_3|state
+Name state.T7 state.T6 state.T5 state.T4 state.T3 state.T2 state.T1 state.T0 
+state.T0 0 0 0 0 0 0 0 0 
+state.T1 0 0 0 0 0 0 1 1 
+state.T2 0 0 0 0 0 1 0 1 
+state.T3 0 0 0 0 1 0 0 1 
+state.T4 0 0 0 1 0 0 0 1 
+state.T5 0 0 1 0 0 0 0 1 
+state.T6 0 1 0 0 0 0 0 1 
+state.T7 1 0 0 0 0 0 0 1 

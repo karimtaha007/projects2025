@@ -1,0 +1,1389 @@
+|orag_v2
+x8 <= micro_control:controller.x8
+clk => reg_10_bit:IR.clk
+clk => MBR:MBR_1.clk
+clk => reg_8_bit:MAR.clk
+clk => T_reg:T_reg_1.clk
+clk => reg_10_bit_without_2bit:A.clk
+clk => reg_10_bit_without_2bit:R.clk
+reset => reg_10_bit:IR.reset
+reset => MBR:MBR_1.reset
+reset => reg_8_bit:MAR.reset
+reset => PC:inst.reset
+reset => reg_10_bit_without_2bit:A.reset
+reset => reg_10_bit_without_2bit:R.reset
+x7 <= micro_control:controller.x7
+x6 <= micro_control:controller.x6
+x5 <= micro_control:controller.x5
+x4 <= micro_control:controller.x4
+x3 <= micro_control:controller.x3
+x2 <= micro_control:controller.x2
+x1 <= micro_control:controller.x1
+A_OUT[0] <= reg_10_bit_without_2bit:A.Q[0]
+A_OUT[1] <= reg_10_bit_without_2bit:A.Q[1]
+A_OUT[2] <= reg_10_bit_without_2bit:A.Q[2]
+A_OUT[3] <= reg_10_bit_without_2bit:A.Q[3]
+A_OUT[4] <= reg_10_bit_without_2bit:A.Q[4]
+A_OUT[5] <= reg_10_bit_without_2bit:A.Q[5]
+A_OUT[6] <= reg_10_bit_without_2bit:A.Q[6]
+A_OUT[7] <= reg_10_bit_without_2bit:A.Q[7]
+A_OUT[8] <= reg_10_bit_without_2bit:A.Q[8]
+A_OUT[9] <= reg_10_bit_without_2bit:A.Q[9]
+R_DATA_IN[0] => reg_10_bit_without_2bit:R.data[0]
+R_DATA_IN[1] => reg_10_bit_without_2bit:R.data[1]
+R_DATA_IN[2] => reg_10_bit_without_2bit:R.data[2]
+R_DATA_IN[3] => reg_10_bit_without_2bit:R.data[3]
+R_DATA_IN[4] => reg_10_bit_without_2bit:R.data[4]
+R_DATA_IN[5] => reg_10_bit_without_2bit:R.data[5]
+R_DATA_IN[6] => reg_10_bit_without_2bit:R.data[6]
+R_DATA_IN[7] => reg_10_bit_without_2bit:R.data[7]
+R_DATA_IN[8] => reg_10_bit_without_2bit:R.data[8]
+R_DATA_IN[9] => reg_10_bit_without_2bit:R.data[9]
+Mem_out[0] <= MBR:MBR_1.Q[0]
+Mem_out[1] <= MBR:MBR_1.Q[1]
+Mem_out[2] <= MBR:MBR_1.Q[2]
+Mem_out[3] <= MBR:MBR_1.Q[3]
+Mem_out[4] <= MBR:MBR_1.Q[4]
+Mem_out[5] <= MBR:MBR_1.Q[5]
+Mem_out[6] <= MBR:MBR_1.Q[6]
+Mem_out[7] <= MBR:MBR_1.Q[7]
+Mem_out[8] <= MBR:MBR_1.Q[8]
+Mem_out[9] <= MBR:MBR_1.Q[9]
+opcode[0] <= reg_10_bit:IR.opcode[0]
+opcode[1] <= reg_10_bit:IR.opcode[1]
+tt[0] <= decoder3x8:DEC3x8_1.out[0]
+tt[1] <= decoder3x8:DEC3x8_1.out[1]
+tt[2] <= decoder3x8:DEC3x8_1.out[2]
+tt[3] <= decoder3x8:DEC3x8_1.out[3]
+tt[4] <= decoder3x8:DEC3x8_1.out[4]
+tt[5] <= decoder3x8:DEC3x8_1.out[5]
+tt[6] <= decoder3x8:DEC3x8_1.out[6]
+tt[7] <= decoder3x8:DEC3x8_1.out[7]
+
+
+|orag_v2|micro_control:controller
+x8 <= comb.DB_MAX_OUTPUT_PORT_TYPE
+x7 <= xo7.DB_MAX_OUTPUT_PORT_TYPE
+x6 <= xa6.DB_MAX_OUTPUT_PORT_TYPE
+x5 <= xo5.DB_MAX_OUTPUT_PORT_TYPE
+x4 <= xo4.DB_MAX_OUTPUT_PORT_TYPE
+x3 <= xo2.DB_MAX_OUTPUT_PORT_TYPE
+x2 <= g3.DB_MAX_OUTPUT_PORT_TYPE
+x1 <= o1.DB_MAX_OUTPUT_PORT_TYPE
+q[0] => ~NO_FANOUT~
+q[1] => xa6.IN0
+q[2] => g1.IN0
+q[2] => g4.IN0
+q[2] => xa5.IN0
+q[3] => g2.IN0
+q[3] => g3.IN0
+q[3] => g5.IN0
+q[3] => xa4.IN0
+q[3] => xa51.IN0
+t[0] => o1.IN2
+t[1] => xo2.IN2
+t[2] => comb.DATAIN
+t[3] => g1.IN1
+t[3] => g2.IN1
+t[3] => xa6.IN1
+t[4] => g4.IN1
+t[4] => g5.IN1
+t[5] => g3.IN1
+t[5] => xa5.IN1
+t[6] => xa4.IN1
+t[7] => xa51.IN1
+
+
+|orag_v2|decoder2x4:DEC2x4_1
+in[0] => Decoder0.IN1
+in[1] => Decoder0.IN0
+out[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|orag_v2|reg_10_bit:IR
+opcode[0] <= one_bit_reg:r8.port0
+opcode[1] <= one_bit_reg:r9.port0
+Q[0] <= one_bit_reg:r0.port0
+Q[1] <= one_bit_reg:r1.port0
+Q[2] <= one_bit_reg:r2.port0
+Q[3] <= one_bit_reg:r3.port0
+Q[4] <= one_bit_reg:r4.port0
+Q[5] <= one_bit_reg:r5.port0
+Q[6] <= one_bit_reg:r6.port0
+Q[7] <= one_bit_reg:r7.port0
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+data[4] => data[4].IN1
+data[5] => data[5].IN1
+data[6] => data[6].IN1
+data[7] => data[7].IN1
+data[8] => data[8].IN1
+data[9] => data[9].IN1
+select => select.IN10
+clk => clk.IN10
+reset => reset.IN10
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r0
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r0|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r0|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r1
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r1|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r1|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r2
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r2|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r2|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r3
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r3|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r3|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r4
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r4|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r4|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r5
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r5|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r5|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r6
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r6|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r6|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r7
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r7|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r7|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r8
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r8|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r8|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r9
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r9|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit:IR|one_bit_reg:r9|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1
+Q[0] <= one_bit_reg:r0.port0
+Q[1] <= one_bit_reg:r1.port0
+Q[2] <= one_bit_reg:r2.port0
+Q[3] <= one_bit_reg:r3.port0
+Q[4] <= one_bit_reg:r4.port0
+Q[5] <= one_bit_reg:r5.port0
+Q[6] <= one_bit_reg:r6.port0
+Q[7] <= one_bit_reg:r7.port0
+Q[8] <= one_bit_reg:r8.port0
+Q[9] <= one_bit_reg:r9.port0
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+data[4] => data[4].IN1
+data[5] => data[5].IN1
+data[6] => data[6].IN1
+data[7] => data[7].IN1
+data[8] => data[8].IN1
+data[9] => data[9].IN1
+select => select.IN10
+clk => clk.IN10
+reset => reset.IN10
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r0
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r0|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r0|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r1
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r1|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r1|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r2
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r2|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r2|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r3
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r3|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r3|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r4
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r4|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r4|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r5
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r5|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r5|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r6
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r6|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r6|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r7
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r7|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r7|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r8
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r8|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r8|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r9
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r9|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|MBR:MBR_1|one_bit_reg:r9|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|Memory16X10:inst27
+data_out[0] <= data_out[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= data_out[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= data_out[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= data_out[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= data_out[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= data_out[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= data_out[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= data_out[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[8] <= data_out[8]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_out[9] <= data_out[9]$latch.DB_MAX_OUTPUT_PORT_TYPE
+data_in[0] => ~NO_FANOUT~
+data_in[1] => ~NO_FANOUT~
+data_in[2] => ~NO_FANOUT~
+data_in[3] => ~NO_FANOUT~
+data_in[4] => ~NO_FANOUT~
+data_in[5] => ~NO_FANOUT~
+data_in[6] => ~NO_FANOUT~
+data_in[7] => ~NO_FANOUT~
+data_in[8] => ~NO_FANOUT~
+data_in[9] => ~NO_FANOUT~
+address[0] => Mem.RADDR
+address[1] => Mem.RADDR1
+address[2] => Mem.RADDR2
+address[3] => Mem.RADDR3
+address[4] => ~NO_FANOUT~
+address[5] => ~NO_FANOUT~
+address[6] => ~NO_FANOUT~
+address[7] => ~NO_FANOUT~
+rw => data_out[0]$latch.LATCH_ENABLE
+rw => data_out[1]$latch.LATCH_ENABLE
+rw => data_out[2]$latch.LATCH_ENABLE
+rw => data_out[3]$latch.LATCH_ENABLE
+rw => data_out[4]$latch.LATCH_ENABLE
+rw => data_out[5]$latch.LATCH_ENABLE
+rw => data_out[6]$latch.LATCH_ENABLE
+rw => data_out[7]$latch.LATCH_ENABLE
+rw => data_out[8]$latch.LATCH_ENABLE
+rw => data_out[9]$latch.LATCH_ENABLE
+
+
+|orag_v2|reg_8_bit:MAR
+Q[0] <= one_bit_reg:r0.port0
+Q[1] <= one_bit_reg:r1.port0
+Q[2] <= one_bit_reg:r2.port0
+Q[3] <= one_bit_reg:r3.port0
+Q[4] <= one_bit_reg:r4.port0
+Q[5] <= one_bit_reg:r5.port0
+Q[6] <= one_bit_reg:r6.port0
+Q[7] <= one_bit_reg:r7.port0
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+data[4] => data[4].IN1
+data[5] => data[5].IN1
+data[6] => data[6].IN1
+data[7] => data[7].IN1
+select => select.IN8
+clk => clk.IN8
+reset => reset.IN8
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r0
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r0|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r0|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r1
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r1|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r1|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r2
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r2|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r2|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r3
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r3|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r3|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r4
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r4|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r4|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r5
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r5|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r5|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r6
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r6|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r6|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r7
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r7|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_8_bit:MAR|one_bit_reg:r7|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|mux2x1_8_bit:Mux2x1
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
+i0[0] => y.DATAA
+i0[1] => y.DATAA
+i0[2] => y.DATAA
+i0[3] => y.DATAA
+i0[4] => y.DATAA
+i0[5] => y.DATAA
+i0[6] => y.DATAA
+i0[7] => y.DATAA
+i1[0] => y.DATAB
+i1[1] => y.DATAB
+i1[2] => y.DATAB
+i1[3] => y.DATAB
+i1[4] => y.DATAB
+i1[5] => y.DATAB
+i1[6] => y.DATAB
+i1[7] => y.DATAB
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+
+
+|orag_v2|PC:inst
+address[0] <= address[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+address[1] <= address[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+address[2] <= address[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+address[3] <= address[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+address[4] <= address[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+address[5] <= address[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+address[6] <= address[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+address[7] <= address[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count => address[0]~reg0.CLK
+count => address[1]~reg0.CLK
+count => address[2]~reg0.CLK
+count => address[3]~reg0.CLK
+count => address[4]~reg0.CLK
+count => address[5]~reg0.CLK
+count => address[6]~reg0.CLK
+count => address[7]~reg0.CLK
+reset => address[0]~reg0.ACLR
+reset => address[1]~reg0.ACLR
+reset => address[2]~reg0.ACLR
+reset => address[3]~reg0.ACLR
+reset => address[4]~reg0.ACLR
+reset => address[5]~reg0.ACLR
+reset => address[6]~reg0.ACLR
+reset => address[7]~reg0.ACLR
+
+
+|orag_v2|decoder3x8:DEC3x8_1
+in[0] => Decoder0.IN2
+in[1] => Decoder0.IN1
+in[2] => Decoder0.IN0
+out[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+out[7] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|orag_v2|T_reg:T_reg_1
+Q[0] <= Q[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= T_FF:t1.port0
+Q[2] <= T_FF:t2.port0
+count => count.IN1
+clk => clk.IN3
+reset => reset.IN3
+
+
+|orag_v2|T_reg:T_reg_1|T_FF:t0
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+T => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|T_reg:T_reg_1|T_FF:t1
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+T => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|T_reg:T_reg_1|T_FF:t2
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+T => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A
+Q[0] <= one_bit_reg:r0.port0
+Q[1] <= one_bit_reg:r1.port0
+Q[2] <= one_bit_reg:r2.port0
+Q[3] <= one_bit_reg:r3.port0
+Q[4] <= one_bit_reg:r4.port0
+Q[5] <= one_bit_reg:r5.port0
+Q[6] <= one_bit_reg:r6.port0
+Q[7] <= one_bit_reg:r7.port0
+Q[8] <= <GND>
+Q[9] <= <GND>
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+data[4] => data[4].IN1
+data[5] => data[5].IN1
+data[6] => data[6].IN1
+data[7] => data[7].IN1
+data[8] => ~NO_FANOUT~
+data[9] => ~NO_FANOUT~
+select => select.IN8
+clk => clk.IN8
+reset => reset.IN8
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r0
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r0|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r0|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r1
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r1|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r1|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r2
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r2|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r2|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r3
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r3|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r3|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r4
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r4|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r4|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r5
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r5|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r5|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r6
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r6|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r6|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r7
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r7|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:A|one_bit_reg:r7|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|mux2x1_10_bit:inst23
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[8] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[9] <= y.DB_MAX_OUTPUT_PORT_TYPE
+i0[0] => y.DATAA
+i0[1] => y.DATAA
+i0[2] => y.DATAA
+i0[3] => y.DATAA
+i0[4] => y.DATAA
+i0[5] => y.DATAA
+i0[6] => y.DATAA
+i0[7] => y.DATAA
+i0[8] => y.DATAA
+i0[9] => y.DATAA
+i1[0] => y.DATAB
+i1[1] => y.DATAB
+i1[2] => y.DATAB
+i1[3] => y.DATAB
+i1[4] => y.DATAB
+i1[5] => y.DATAB
+i1[6] => y.DATAB
+i1[7] => y.DATAB
+i1[8] => y.DATAB
+i1[9] => y.DATAB
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+select => y.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R
+Q[0] <= one_bit_reg:r0.port0
+Q[1] <= one_bit_reg:r1.port0
+Q[2] <= one_bit_reg:r2.port0
+Q[3] <= one_bit_reg:r3.port0
+Q[4] <= one_bit_reg:r4.port0
+Q[5] <= one_bit_reg:r5.port0
+Q[6] <= one_bit_reg:r6.port0
+Q[7] <= one_bit_reg:r7.port0
+Q[8] <= <GND>
+Q[9] <= <GND>
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+data[4] => data[4].IN1
+data[5] => data[5].IN1
+data[6] => data[6].IN1
+data[7] => data[7].IN1
+data[8] => ~NO_FANOUT~
+data[9] => ~NO_FANOUT~
+select => select.IN8
+clk => clk.IN8
+reset => reset.IN8
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r0
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r0|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r0|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r1
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r1|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r1|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r2
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r2|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r2|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r3
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r3|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r3|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r4
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r4|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r4|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r5
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r5|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r5|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r6
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r6|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r6|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r7
+Q <= Q.DB_MAX_OUTPUT_PORT_TYPE
+data => data.IN1
+select => select.IN1
+clk => clk.IN1
+reset => reset.IN1
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r7|mux2x1:comb_3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+i0 => out.DATAA
+i1 => out.DATAB
+s => out.OUTPUTSELECT
+
+
+|orag_v2|reg_10_bit_without_2bit:R|one_bit_reg:r7|D_FF:comb_4
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+D => Q.DATAA
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+
+
